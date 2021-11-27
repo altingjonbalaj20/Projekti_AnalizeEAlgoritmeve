@@ -9,6 +9,7 @@ public class Order {
     private boolean returnable;
     private boolean premium;
     private boolean delivered;
+    private boolean postponed;
 
     public Order(String owner, String address, String tel, String description, double price, boolean returnable, boolean premium){
         this.owner = owner;
@@ -19,6 +20,7 @@ public class Order {
         this.returnable = returnable;
         this.premium = premium;
         delivered = false;
+        postponed = false;
     }
 
     public String getOwner(){
@@ -53,7 +55,16 @@ public class Order {
         return delivered;
     }
 
-    public void setDelivered(){
-        delivered = true;
+    public void setDelivered(boolean delivered){
+        this.delivered = delivered;
     }
+
+    public boolean isPostponed(){
+        return postponed;
+    }
+
+    public void setPostponed(boolean postponed){
+        this.postponed = postponed;
+    }
+
 }

@@ -1,7 +1,5 @@
 package model;
 
-import java.util.LinkedList;
-
 public class Section {
     private String sectionName;
     private int xPosition;
@@ -12,6 +10,10 @@ public class Section {
         this.yPosition = yPosition;
     }
 
+    public String getSectionName(){
+        return sectionName;
+    }
+
     public int getXPosition(){
         return xPosition;
     }
@@ -20,6 +22,4 @@ public class Section {
         return yPosition;
     }
     
-
-
 }

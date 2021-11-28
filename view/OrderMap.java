@@ -51,7 +51,7 @@ public class OrderMap extends ScrollPane implements AdjustmentListener{
 
     private void init(){
         points = new LinkedHashSet<>();
-        setSize(100, 100);
+        setSize(1000, 1000);
         for (Order order : orders) {
             points.add(order.getSection().location());
         }

@@ -2,14 +2,8 @@ package view;
 
 import javax.swing.*;
 import javax.swing.ScrollPaneConstants;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.JSplitPane;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
     JPanel mainPanel;
@@ -67,12 +61,5 @@ public class MainFrame extends JFrame {
 
         setContentPane(mainPanel);
 
-        Timer t = new Timer(300, new ActionListener(){
-           
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                repaint();
-            }
-        });
     }
 }

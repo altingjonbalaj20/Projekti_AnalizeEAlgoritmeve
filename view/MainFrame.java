@@ -1,16 +1,18 @@
 package view;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
+import javax.swing.*;
+import javax.swing.ScrollPaneConstants;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JSplitPane;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class MainFrame extends JFrame {
     JPanel mainPanel;
-    JSplitPane mainSplitPane;
 
     OrderMap leftPanel;
 
@@ -33,33 +35,44 @@ public class MainFrame extends JFrame {
         GridBagLayout gbMainPanel = new GridBagLayout();
         GridBagConstraints gbcMainPanel = new GridBagConstraints();
         mainPanel.setLayout( gbMainPanel );
-
-        mainSplitPane = new JSplitPane(1);
-        mainSplitPane.setDividerLocation( 200 );
-        mainSplitPane.setForeground( new Color( 0,0,0 ) );
-        mainSplitPane.setLastDividerLocation( 200 );
-
+        
         leftPanel = new OrderMap();
-        mainSplitPane.setLeftComponent(leftPanel);
+        JScrollPane spLeftPanel = new JScrollPane(leftPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        leftPanel.setScrollBars(spLeftPanel.getHorizontalScrollBar(), spLeftPanel.getHorizontalScrollBar());
 
         rightPanel = new JPanel();
         GridBagLayout gbRightPanel = new GridBagLayout();
         GridBagConstraints gbcRightPanel = new GridBagConstraints();
-        rightPanel.setLayout( gbRightPanel );
+        JButton sample = new JButton("Sample button");
+        gbRightPanel.setConstraints(sample, gbcRightPanel);
+        rightPanel.add(sample, gbRightPanel);
 
-        mainSplitPane.setRightComponent(rightPanel);
+        rightPanel.setLayout( gbRightPanel );
 
         gbcMainPanel.gridx = 0;
         gbcMainPanel.gridy = 0;
-        gbcMainPanel.gridwidth = 1;
+        gbcMainPanel.gridwidth = 4;
         gbcMainPanel.gridheight = 1;
         gbcMainPanel.fill = GridBagConstraints.BOTH;
         gbcMainPanel.weightx = 1;
         gbcMainPanel.weighty = 1;
         gbcMainPanel.anchor = GridBagConstraints.CENTER;
-        gbMainPanel.setConstraints( mainSplitPane, gbcMainPanel );
-        mainPanel.add( mainSplitPane );
+        gbMainPanel.setConstraints( leftPanel, gbcMainPanel );
+        mainPanel.add( leftPanel );
+
+        gbcMainPanel.gridwidth = 1;
+        gbcMainPanel.gridx = 5;
+        gbMainPanel.setConstraints(rightPanel, gbcMainPanel);
+        mainPanel.add(rightPanel);
 
         setContentPane(mainPanel);
+
+        Timer t = new Timer(300, new ActionListener(){
+           
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+            }
+        });
     }
 }

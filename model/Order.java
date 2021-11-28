@@ -3,6 +3,7 @@ package model;
 public class Order {
     private String owner;
     private String address;
+    private Section section;
     private String tel;
     private String description;
     private double price;
@@ -11,9 +12,10 @@ public class Order {
     private boolean delivered;
     private boolean postponed;
 
-    public Order(String owner, String address, String tel, String description, double price, boolean returnable, boolean premium){
+    public Order(String owner, String address, Section section, String tel, String description, double price, boolean returnable, boolean premium){
         this.owner = owner;
         this.address = address;
+        this.section = section;
         this.tel = tel;
         this.description = description;
         this.price = price;
@@ -29,6 +31,10 @@ public class Order {
 
     public String getAddress(){
         return address;
+    }
+
+    public Section getSection(){
+        return section;
     }
 
     public String tel(){

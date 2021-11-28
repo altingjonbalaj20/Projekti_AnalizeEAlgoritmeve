@@ -4,15 +4,13 @@ import java.util.HashMap;
 
 public class Section {
     private String sectionName;
-    private int xPosition;
-    private int yPosition;
+    private Point location;
     private HashMap<Section, Integer> paths;
 
-    public Section(String sectionName, int xPosition, int yPosition){
+    public Section(String sectionName, Point point){
         this.sectionName = sectionName;
         paths = new HashMap<>();
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
+        location = point;
     }
 
     public void addPath(Section section, int pathCost){
@@ -27,12 +25,8 @@ public class Section {
         return sectionName;
     }
 
-    public int getXPosition(){
-        return xPosition;
-    }
-
-    public int getYPosition(){
-        return yPosition;
+    public Point location(){
+        return location;
     }
     
 }

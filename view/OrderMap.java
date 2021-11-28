@@ -1,27 +1,41 @@
 package view;
 
-import java.awt.Graphics;
+import java.awt.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 import model.Order;
 import model.Point;
+import model.Section;
 
-public class OrderMap extends JPanel{
+public class OrderMap extends JScrollPane{
     private int zoom;
-    private Set<Point> points;
+    private LinkedHashSet<Point> points;
 
     private int xTranslation;
     private int yTranslation;
 
+    JScrollBar horizontalScroll;
+    JScrollBar verticalScroll;
+
     private LinkedList<Order> orders;
 
     public OrderMap(){
-        
+        testConfig();
+    }
+
+    private void testConfig(){
+        orders = new LinkedList<>();
+        zoom = 1;
+        Point p = new Point(3,4);
+        Section s = new Section("Asllanqeshme", p);
+        orders.add(new Order("hh", "hh", s, "049-667-116", "hehw", 47, true, true));
+        init();
     }
 
     public OrderMap(LinkedList<Order> orders){
@@ -31,20 +45,20 @@ public class OrderMap extends JPanel{
     }
 
     private void init(){
+        points = new LinkedHashSet<>();
         for (Order order : orders) {
             points.add(order.getSection().location());
         }
 
-        JScrollBar horizontalScroll = new JScrollBar(1);
-        JScrollBar verticalScroll = new JScrollBar(2);
-
-        
     }
     
     @Override
     public void paint(Graphics g) {
-        revalidate();
-        super.paint(g);
-        g.drawLine(4,4, 40, 50);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.translate(xTranslation, yTranslation);
+        g2.scale(zoom, zoom);
+        for(Point point: points){
+            g2.fillOval(point.xPosition(), point.yPosition(), 3, 3);
+        }
     }
 }

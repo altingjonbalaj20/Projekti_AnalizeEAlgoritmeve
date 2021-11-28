@@ -1,14 +1,11 @@
 package view;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
 import javax.swing.JSplitPane;
 import java.awt.Color;
 public class MainFrame extends JFrame {
@@ -43,18 +40,12 @@ public class MainFrame extends JFrame {
         mainSplitPane.setLastDividerLocation( 200 );
 
         leftPanel = new OrderMap();
-        GridBagLayout gbLeftPanel = new GridBagLayout();
-        GridBagConstraints gbcLeftPanel = new GridBagConstraints();
-        leftPanel.setLayout( gbLeftPanel );
-        mainSplitPane.setLeftComponent(new JScrollPane(leftPanel));
+        mainSplitPane.setLeftComponent(leftPanel);
 
         rightPanel = new JPanel();
         GridBagLayout gbRightPanel = new GridBagLayout();
         GridBagConstraints gbcRightPanel = new GridBagConstraints();
         rightPanel.setLayout( gbRightPanel );
-        JButton j = new JButton("Hello");
-        gbLeftPanel.setConstraints(j, gbcLeftPanel);
-        rightPanel.add(j, gbcLeftPanel);
 
         mainSplitPane.setRightComponent(rightPanel);
 

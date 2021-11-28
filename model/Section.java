@@ -1,10 +1,12 @@
 package model;
 
+import java.awt.geom.*;
 import java.util.HashMap;
 
 public class Section {
     private String sectionName;
     private Point location;
+    private Point2D loc;
     private HashMap<Section, Integer> paths;
 
     public Section(String sectionName, Point point){

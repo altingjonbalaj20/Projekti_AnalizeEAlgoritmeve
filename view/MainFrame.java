@@ -31,8 +31,6 @@ public class MainFrame extends JFrame {
         mainPanel.setLayout( gbMainPanel );
         
         leftPanel = new OrderMap();
-        JScrollPane spLeftPanel = new JScrollPane(leftPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        leftPanel.setScrollBars(spLeftPanel.getHorizontalScrollBar(), spLeftPanel.getHorizontalScrollBar());
 
         rightPanel = new JPanel();
         GridBagLayout gbRightPanel = new GridBagLayout();

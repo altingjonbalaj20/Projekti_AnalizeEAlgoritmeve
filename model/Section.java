@@ -1,13 +1,12 @@
 package model;
 
-import java.awt.geom.*;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Section {
     private String sectionName;
     private Point location;
-    private Point2D loc;
-    private HashMap<Section, Integer> paths;
+    private HashMap<Section, Integer> paths;//Section, SectionCost path
 
     public Section(String sectionName, Point point){
         this.sectionName = sectionName;
@@ -25,6 +24,10 @@ public class Section {
 
     public String getSectionName(){
         return sectionName;
+    }
+
+    public LinkedList<Section> getNeighbors(){
+        return new LinkedList<>(paths.keySet());
     }
 
     public Point location(){

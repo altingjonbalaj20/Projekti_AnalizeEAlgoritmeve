@@ -4,8 +4,6 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         LinkedList<Integer> arr = new LinkedList<>();
-
-
         arr.add(-4);
         arr.add(8);
         arr.add(12);
@@ -47,6 +45,7 @@ public class Main {
         arr.add(0);
         arr.add(20);
         arr.add(50);
+        arr.add(42);
         arr.add(79);
         arr.add(1);arr.add(-4);
         arr.add(8);
@@ -1027,22 +1026,13 @@ public class Main {
         arr.add(50);
         arr.add(79);
         arr.add(1);
-
-
         arr.add(5);
-
-
+        arr.add(4);
+        arr.add(3);
         System.out.println(arr);
         BinaryInsertionSort binary = new BinaryInsertionSort();
         InterpolationInsertionSort interpolation = new InterpolationInsertionSort();
-        long start = System.nanoTime();
-        arr.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1.compareTo(o2);
-            }
-        });
-        long end1 = System.nanoTime();
-        System.out.println(end1 - start);
+        arr = interpolation.sort(arr);
+        System.out.println(arr);
     }
 }

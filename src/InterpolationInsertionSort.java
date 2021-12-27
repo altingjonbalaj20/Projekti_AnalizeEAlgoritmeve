@@ -1,17 +1,40 @@
 import java.util.LinkedList;
 
 public class InterpolationInsertionSort {
-
+    private BinaryInsertionSort binary = new BinaryInsertionSort();
     public LinkedList<Integer> sort(LinkedList<Integer> array){
         LinkedList<Integer> sortedArray = new LinkedList<>();
         sortedArray.add(array.removeFirst());
         while(!array.isEmpty()) {
             Integer element = array.removeFirst();
-//            int index = interpolationSearchRecursion(sortedArray, element,0, sortedArray.size() - 1);
             int index = interpolationSearchNoRec(sortedArray, element);
             sortedArray.add(index, element);
         }
         return sortedArray;
+    }
+
+    public int interpolationSearchNoRec(LinkedList<Integer> array, Integer element) {
+        int left = 0;
+        int right = array.size() - 1;
+        if(array.get(left) >= element)
+            return left;
+        if(array.get(right) <= element)
+            return right + 1;
+        while (left <= right && element >= array.get(left) && element <= array.get(right)) {
+
+            int pos = (int) (left + (((double)(right - left) / (array.get(right) - array.get(left)) * (element - array.get(left)))));
+
+            if (array.get(pos) == element)
+                return pos;
+
+            if (array.get(pos) < element)
+                left = pos + 1;
+
+            else
+                right = pos - 1;
+        }
+        System.out.println("Left : " + left + " Right: " + right);
+        return binary.binarySearchRecursion(array, element, left, right);
     }
 
     public int interpolationSearchRecursion(LinkedList<Integer> array, Integer element, int left, int right){
@@ -32,27 +55,5 @@ public class InterpolationInsertionSort {
                 return interpolationSearchRecursion(array, element, left, pos - 1);
         }
         return left;
-    }
-
-    public int interpolationSearchNoRec(LinkedList<Integer> array, Integer element) {
-        int left = 0;
-        int right = array.size() - 1;
-        while (element >= array.get(left) && element <= array.get(right) && left <= right) {
-            if (left >= right) {
-                return (element > left) ? (left + 1) : left;
-            }
-
-            int pos = left + (element - array.get(left)) * (right - left) / (array.get(right) - array.get(left));
-
-            if (element == array.get(pos))
-                return pos + 1;
-
-            if (element > array.get(pos))
-                left = pos + 1;
-
-            else
-                right = pos - 1;
-        }
-        return new BinaryInsertionSort().binarySearchRecursion(array, element, left, right);
     }
 }

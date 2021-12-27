@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a09200a8-8366-4e59-a948-fdffcaf7d8fa" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekti - Analize e Algoritmeve.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projekti - Analize e Algoritmeve.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/InterpolationInsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/InterpolationInsertionSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/J.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/Main$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projekti - Analize e Algoritmeve/Projekti - Analize e Algoritmeve.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InterpolationInsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterpolationInsertionSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -125,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640430177534</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".">
+      <created>1640643217738</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640643217738</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
